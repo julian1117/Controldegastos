@@ -4,41 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.camilo.controldegastos.ListadoVehiculos"
-    android:weightSum="1"
-    android:orientation="vertical">
+    tools:context="com.example.camilo.controldegastos.ListadoGanancias"
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.14" />
+        android:layout_weight="0.25" />
 
     <TextView
-        android:id="@+id/tvTituloListado"
+        android:id="@+id/tvTituloGanancias"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.03"
-        android:text="Listado de Vehiculos"
+        android:text="Listado de ganancias - Gastos"
         android:textAlignment="center"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <ListView
-        android:id="@+id/listadoVehiculos"
-        android:layout_width="match_parent"
-        android:layout_height="344dp" />
-
     <Space
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.03" />
+        android:layout_weight="0.25" />
 
-    <Button
-        android:id="@+id/bntRegistrarNuevoV"
+    <ListView
+        android:id="@+id/listadoGananciasGastos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.03"
-        android:text="REGISTRAR UN NUEVO VEHICULO"
-        android:textStyle="bold" />
+        android:layout_height="384dp" />
 </LinearLayout>
