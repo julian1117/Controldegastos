@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.camilo.controldegastos.MainActivity">
+    tools:context="com.example.camilo.controldegastos.MainActivity"
+    android:weightSum="1">
 
     <TextView
         android:id="@+id/textView2"
@@ -20,4 +21,16 @@
         android:ems="10"
         android:hint="Placa del vehiculo"
         android:inputType="textPersonName" />
+
+    <Spinner
+        android:id="@+id/marca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.06" />
+
+    <Spinner
+        android:id="@+id/tipoVehiculo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.07" />
 </LinearLayout>
