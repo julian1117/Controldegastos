@@ -19,7 +19,8 @@
         <activity android:name=".ListadoVehiculos" />
         <activity android:name=".Gastos" />
         <activity android:name=".ListadoGanancias" />
-        <activity android:name=".InformacionVehiculo"></activity>
+        <activity android:name=".InformacionVehiculo" />
+        <activity android:name=".Ganancias"></activity>
     </application>
 
 </manifest>
