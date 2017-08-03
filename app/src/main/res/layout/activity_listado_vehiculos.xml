@@ -8,6 +8,11 @@
     android:weightSum="1"
     android:orientation="vertical">
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.14" />
+
     <TextView
         android:id="@+id/tvTituloListado"
         android:layout_width="match_parent"
@@ -26,7 +31,7 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.14" />
+        android:layout_weight="0.03" />
 
     <Button
         android:id="@+id/bntRegistrarNuevoV"
