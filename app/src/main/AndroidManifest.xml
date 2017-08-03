@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".ListadoVehiculos" />
         <activity android:name=".Gastos" />
-        <activity android:name=".ListadoGanancias"></activity>
+        <activity android:name=".ListadoGanancias" />
+        <activity android:name=".InformacionVehiculo"></activity>
     </application>
 
 </manifest>
