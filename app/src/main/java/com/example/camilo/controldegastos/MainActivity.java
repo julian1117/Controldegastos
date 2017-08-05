@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         cbmarca.setAdapter(spinnerMarca);
     }
 
-    public  void guardarDato(){
+   public void guardar(View view){
         /**
         persistencia = getSharedPreferences("registroVehiculo", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = persistencia.edit();
