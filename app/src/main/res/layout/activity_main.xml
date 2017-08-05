@@ -19,7 +19,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/etPlacas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -39,12 +39,11 @@
         android:layout_weight="0.07" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/pasajero"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:inputType="number" />
 
     <Space
         android:layout_width="match_parent"

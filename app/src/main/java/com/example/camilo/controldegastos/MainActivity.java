@@ -15,16 +15,20 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    SharedPreferences persistencia;
-    Spinner cbmarca;
 
+    Spinner cbmarca;
+    Spinner cbTipoVeh;
+    EditText ingesoPas;
     EditText placa;
+
+    SharedPreferences persistencia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        placa = (EditText) findViewById(R.id.etPlaca);
+        placa = (EditText) findViewById(R.id.etPlacas);
+        ingesoPas = (EditText) findViewById(R.id.pasajero);
         llenarComboMarca();
         llenarComboTipoVehiculo();
     }
@@ -39,26 +43,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void llenarComboTipoVehiculo() {
-        Spinner cbmarca = (Spinner) findViewById(R.id.tipoVehiculo);
+        cbTipoVeh = (Spinner) findViewById(R.id.tipoVehiculo);
         String[] lista = {"Compacto (uber)", "Bus", "Micro Bus", "Taxi"};
         ArrayAdapter<String> spinnerMarca = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, lista);
-        cbmarca.setAdapter(spinnerMarca);
+        cbTipoVeh.setAdapter(spinnerMarca);
     }
 
-   public void guardar(View view){
-        /**
+    public void guardar(View view) {
+
         persistencia = getSharedPreferences("registroVehiculo", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = persistencia.edit();
-        editor.putString("placa",placa.getText().toString());
+        editor.putString("placa", placa.getText().toString());
         editor.putString("Marca", cbmarca.getSelectedItem().toString());
-*/
-        String b = cbmarca.getSelectedItem().toString();
-        Toast.makeText(this, "Ingreso" +b, Toast.LENGTH_SHORT).show();
+        editor.putString("Tipo vehiculo", cbTipoVeh.getSelectedItem().toString());
+        editor.putInt("Ingreso de pasajers", Integer.parseInt(ingesoPas.getText().toString()));
 
-      //  editor.putInt("edad",Integer.parseInt(edad.getText().toString()));
-       // editor.commit();
+        editor.commit();
 
+        Toast.makeText(this, "Ingreso", Toast.LENGTH_SHORT).show();
 
     }
 
