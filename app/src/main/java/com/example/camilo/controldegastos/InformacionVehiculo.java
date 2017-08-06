@@ -6,7 +6,9 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -21,9 +23,19 @@ public class InformacionVehiculo extends AppCompatActivity {
     EditText plac;
     EditText marc;
     EditText tipo;
+    EditText su;
+    double suma=0;
     private ArrayList<String> datos;
 
     private SharedPreferences persistencia;
+
+    private ArrayList<String> datos1;
+    private ArrayList<String> datos2;
+
+    private ArrayAdapter<String> adaptador1;
+
+    private SharedPreferences persistencia1;
+    private SharedPreferences persistencia2;
 
 
 
@@ -37,8 +49,42 @@ public class InformacionVehiculo extends AppCompatActivity {
         plac = (EditText) findViewById(R.id.etPlaca);
         marc = (EditText) findViewById(R.id.edMarca);
         tipo = (EditText) findViewById(R.id.edTipoVeGas);
+        su = (EditText) findViewById(R.id.etGanancia);
         cargar();
 
+        persistencia1 = getSharedPreferences("Ganancias", Context.MODE_PRIVATE);
+        persistencia2 = getSharedPreferences("gastosSha", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+
+        datos1 = new ArrayList<String>();
+        datos2 = new ArrayList<String>();
+
+        String lis = persistencia1.getString("listaGanancias", " ");
+        String lis2 = persistencia2.getString("listaGastos"," ");
+
+        Type type = new TypeToken<List<String>>() {
+        }.getType();
+
+        Type type2 = new TypeToken<List<String>>() {
+        }.getType();
+
+        List<String> objects = gson.fromJson(lis, type);
+        List<String> objects2 = gson.fromJson(lis2, type2);
+
+        // for (int i = 0; i < objects.size(); i += 4) {
+        datos1.add("Tipo G: " + objects.get(0) + " - " + objects.get(1));
+        datos1.add("Tipo gas: " +objects2.get(0) + " - " +objects2.get(1));
+
+
+
+        double gana = Double.parseDouble(objects.get(1)) ;
+        double gastooo = Double.parseDouble(objects2.get(1));
+        if(gana==0 && gastooo==0){
+            su.setText(0);
+        }else {
+            suma = gana - gastooo;
+            su.setText(suma + "");
+        }
     }
 
     public void cargar (){
@@ -57,6 +103,7 @@ public class InformacionVehiculo extends AppCompatActivity {
         plac.setText(objects.get(0));
         tipo.setText(objects.get(2));
         marc.setText(objects.get(1));
+
 
 
     }

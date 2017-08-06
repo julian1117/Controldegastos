@@ -35,8 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.05"
         android:ems="10"
+        android:hint="Nombre del Gasto"
         android:inputType="textPersonName"
-        android:text="Nombre del Gasto"
         android:textColor="@android:color/background_dark" />
 
     <Space
@@ -50,8 +50,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.05"
         android:ems="10"
-        android:inputType="number"
-        android:text="Costo del Gasto" />
+        android:hint="Costo del Gasto"
+        android:inputType="number" />
 
     <Space
         android:layout_width="match_parent"
