@@ -62,8 +62,14 @@ public class MainActivity extends AppCompatActivity {
         editor.commit();
 
         Toast.makeText(this, "Ingreso", Toast.LENGTH_SHORT).show();
-        //coment
+
+
 
     }
 
+
+    public void ir(View v){
+        Intent intent = new Intent(this,ListadoVehiculos.class);
+        startActivity(intent);
+    }
 }
