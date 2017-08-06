@@ -47,9 +47,9 @@ public class ListadoVehiculos extends AppCompatActivity {
 
         List<String> objects = gson.fromJson(lis, type);
 
-        for (int i = 0; i < objects.size(); i += 4) {
-            datos.add("Tipo Vehiculo " + i + 1 + ": " + objects.get(0) + " - " + objects.get(2));
-        }
+       // for (int i = 0; i < objects.size(); i += 4) {
+            datos.add("Tipo Vehiculo : " + objects.get(0) + " - " + objects.get(2));
+       // }
 
         adaptador1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datos);
         listaVehiculos.setAdapter(adaptador1);
