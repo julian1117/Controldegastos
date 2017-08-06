@@ -32,7 +32,7 @@ public class Gastos extends AppCompatActivity {
 
     public void guardar(View view) {
 
-        persistencia = getSharedPreferences("registroVehiculo", Context.MODE_PRIVATE);
+        persistencia = getSharedPreferences("gastosSha", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = persistencia.edit();
 
         List<String> listaGasto = new ArrayList<>();
