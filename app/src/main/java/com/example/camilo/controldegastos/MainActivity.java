@@ -13,6 +13,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -54,14 +59,22 @@ public class MainActivity extends AppCompatActivity {
 
         persistencia = getSharedPreferences("registroVehiculo", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = persistencia.edit();
-        editor.putString("placa", placa.getText().toString());
-        editor.putString("Marca", cbmarca.getSelectedItem().toString());
-        editor.putString("Tipo vehiculo", cbTipoVeh.getSelectedItem().toString());
-        editor.putInt("Ingreso de pasajers", Integer.parseInt(ingesoPas.getText().toString()));
+
+        List<String> lista = new ArrayList<>();
+        lista.add(placa.getText().toString());
+        lista.add(cbmarca.getSelectedItem().toString());
+        lista.add(cbTipoVeh.getSelectedItem().toString());
+        lista.add(ingesoPas.getText().toString());
+
+        Gson gson = new Gson();
+
+        String li = gson.toJson(lista);
+
+        editor.putString("lista", li);
 
         editor.commit();
 
-        Toast.makeText(this, "Ingreso", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Guardado", Toast.LENGTH_SHORT).show();
 
 
 
