@@ -54,13 +54,17 @@ public class ListadoVehiculos extends AppCompatActivity {
         adaptador1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datos);
         listaVehiculos.setAdapter(adaptador1);
 
-        listaVehiculos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        listaVehiculos.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 String a = adaptador1.getItem(position);
+
                 ir(view);
             }
         });
+
     }
 
 

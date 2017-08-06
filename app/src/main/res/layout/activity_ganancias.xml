@@ -18,7 +18,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editText7"
+        android:id="@+id/nomGanancia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -26,12 +26,12 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/editText8"
+        android:id="@+id/cantIngresoGanancia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Cantidad del ingreso"
-        android:inputType="textPersonName" />
+        android:inputType="numberDecimal" />
 
     <Space
         android:layout_width="match_parent"
@@ -41,5 +41,6 @@
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="guardar"
         android:text="Registro ganancia" />
 </LinearLayout>

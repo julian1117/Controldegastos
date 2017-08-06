@@ -76,8 +76,6 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Guardado", Toast.LENGTH_SHORT).show();
 
-
-
         Intent intent = new Intent(this, ListadoVehiculos.class);
         startActivity(intent);
 
