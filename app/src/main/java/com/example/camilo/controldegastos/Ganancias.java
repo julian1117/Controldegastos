@@ -18,7 +18,7 @@ public class Ganancias extends AppCompatActivity {
 
     EditText nombreGanan;
     EditText cantidadGanan;
-
+    String pl;
     SharedPreferences persistencia;
 
     @Override
@@ -27,6 +27,10 @@ public class Ganancias extends AppCompatActivity {
         setContentView(R.layout.activity_ganancias);
         nombreGanan = (EditText) findViewById(R.id.nomGanancia);
         cantidadGanan = (EditText) findViewById(R.id.cantIngresoGanancia);
+
+        Bundle datoPlaca = getIntent().getExtras();
+        pl = datoPlaca.getString("placaGloba");
+
     }
 
     public void guardar(View view) {
@@ -37,6 +41,7 @@ public class Ganancias extends AppCompatActivity {
         List<String> lista = new ArrayList<>();
         lista.add(nombreGanan.getText().toString());
         lista.add(cantidadGanan.getText().toString());
+        lista.add(pl);
 
 
         Gson gson = new Gson();

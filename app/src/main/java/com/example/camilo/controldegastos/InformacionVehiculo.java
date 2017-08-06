@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -56,6 +57,8 @@ public class InformacionVehiculo extends AppCompatActivity {
         plac.setText(objects.get(0));
         tipo.setText(objects.get(2));
         marc.setText(objects.get(1));
+
+
     }
 
     public void ingresarGasto(View view){
@@ -65,6 +68,8 @@ public class InformacionVehiculo extends AppCompatActivity {
 
     public void ingresarGanancia(View view){
         Intent intent = new Intent(this,Ganancias.class);
-        startActivity(intent);
+        String p = plac.getText().toString();
+        intent.putExtra("placaGloba",p);
+       startActivity(intent);
     }
 }
