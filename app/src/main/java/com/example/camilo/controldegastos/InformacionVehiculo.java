@@ -63,6 +63,8 @@ public class InformacionVehiculo extends AppCompatActivity {
 
     public void ingresarGasto(View view){
         Intent intent = new Intent(this,Gastos.class);
+        String pl = plac.getText().toString();
+        intent.putExtra("placaGlobaG",pl);
         startActivity(intent);
     }
 

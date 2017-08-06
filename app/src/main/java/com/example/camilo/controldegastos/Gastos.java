@@ -18,6 +18,7 @@ public class Gastos extends AppCompatActivity {
 
     EditText nombre;
     EditText gasto;
+    String pla ;
 
     SharedPreferences persistencia;
 
@@ -28,6 +29,9 @@ public class Gastos extends AppCompatActivity {
 
         nombre= (EditText) findViewById(R.id.etNombreGasto);
         gasto = (EditText) findViewById(R.id.etCostoGasto);
+
+        Bundle datoPlaca = getIntent().getExtras();
+        pla = datoPlaca.getString("placaGlobaG");
     }
 
     public void guardar(View view) {
@@ -38,6 +42,7 @@ public class Gastos extends AppCompatActivity {
         List<String> listaGasto = new ArrayList<>();
         listaGasto.add(nombre.getText().toString());
         listaGasto.add(gasto.getText().toString());
+        listaGasto.add(pla);
 
         Gson gson = new Gson();
         String lisGas = gson.toJson(listaGasto);
