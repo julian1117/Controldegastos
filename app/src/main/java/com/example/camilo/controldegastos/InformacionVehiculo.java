@@ -33,8 +33,8 @@ public class InformacionVehiculo extends AppCompatActivity {
     public void cargar (){
 
         persistencia=getSharedPreferences("registroVehiculo", Context.MODE_PRIVATE);
-        plac.setText(persistencia.getString("placa",""));
-        marc.setText(persistencia.getString("Tipo vehiculo", " "));
-        //marc.setText(persistencia.getString(""));
+        //plac.setText(persistencia.getString());
+        tipo.setText(persistencia.getString("Tipo vehiculo", " "));
+        marc.setText(persistencia.getString("cbmarca",""));
     }
 }

@@ -1,9 +1,12 @@
 package com.example.camilo.controldegastos;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -48,19 +51,18 @@ public class ListadoVehiculos extends AppCompatActivity {
             datos.add("Tipo Vehiculo " + i + 1 + ": " + objects.get(0) + " - " + objects.get(2));
         }
 
-        adaptador1=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, datos);
+        adaptador1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datos);
         listaVehiculos.setAdapter(adaptador1);
-    }
 
-      listaVehiculos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-          @Override
-          public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        listaVehiculos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String a = adaptador1.getItem(position);
 
-             String a = adaptador1.getItem(position);
+                ir(view);
+            }
+        });
 
-              ir(view);
-          }
-      });
 
     }
 
