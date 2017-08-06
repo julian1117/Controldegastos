@@ -1,9 +1,11 @@
 package com.example.camilo.controldegastos;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 
 import com.google.gson.Gson;
@@ -54,5 +56,15 @@ public class InformacionVehiculo extends AppCompatActivity {
         plac.setText(objects.get(0));
         tipo.setText(objects.get(2));
         marc.setText(objects.get(1));
+    }
+
+    public void ingresarGasto(View view){
+        Intent intent = new Intent(this,Gastos.class);
+        startActivity(intent);
+    }
+
+    public void ingresarGanancia(View view){
+        Intent intent = new Intent(this,Ganancias.class);
+        startActivity(intent);
     }
 }

@@ -138,6 +138,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.03"
+        android:onClick="ingresarGasto"
         android:text="INGRESAR GASTOS" />
 
     <Button
@@ -145,6 +146,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.03"
+        android:onClick="ingresarGanancia"
         android:text="INGRESAR GANANCIAS" />
 
     <Button
