@@ -58,12 +58,9 @@ public class ListadoVehiculos extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String a = adaptador1.getItem(position);
-
                 ir(view);
             }
         });
-
-
     }
 
 
