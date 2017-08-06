@@ -74,4 +74,9 @@ public class InformacionVehiculo extends AppCompatActivity {
         intent.putExtra("placaGloba",p);
        startActivity(intent);
     }
+
+    public void ingresarLista(View view){
+        Intent intent = new Intent(this,ListadoGanancias.class);
+        startActivity(intent);
+    }
 }

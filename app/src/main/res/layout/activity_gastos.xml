@@ -62,5 +62,6 @@
         android:id="@+id/btnRegistrarGasto"
         android:layout_width="208dp"
         android:layout_height="wrap_content"
+        android:onClick="guardar"
         android:text="REGISTRAR GASTO" />
 </LinearLayout>
