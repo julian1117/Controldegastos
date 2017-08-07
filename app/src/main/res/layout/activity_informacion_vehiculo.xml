@@ -51,8 +51,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:enabled="false"
                 android:inputType="textPersonName"
-                android:text="Placa Vehiculo" />
+                android:singleLine="false"
+                android:text="Placa Vehiculo"
+                android:textColor="@android:color/black" />
 
         </TableRow>
 
@@ -75,8 +78,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:enabled="false"
                 android:inputType="textPersonName"
-                android:text="Marca Vehiculo" />
+                android:text="Marca Vehiculo"
+                android:textColor="@android:color/black" />
         </TableRow>
 
         <TableRow
@@ -98,8 +103,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:enabled="false"
                 android:inputType="textPersonName"
-                android:text="Tipo de Vehiculo" />
+                android:text="Tipo de Vehiculo"
+                android:textColor="@android:color/black" />
         </TableRow>
 
     </TableLayout>
@@ -125,8 +132,10 @@
         android:layout_width="182dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:enabled="false"
         android:inputType="number"
-        android:text="$" />
+        android:text="$"
+        android:textColor="@android:color/holo_orange_dark" />
 
     <Space
         android:layout_width="match_parent"

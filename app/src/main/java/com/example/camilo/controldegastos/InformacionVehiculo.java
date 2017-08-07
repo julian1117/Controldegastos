@@ -24,7 +24,7 @@ public class InformacionVehiculo extends AppCompatActivity {
     EditText marc;
     EditText tipo;
     EditText su;
-    double suma=0;
+    double suma = 0;
     private ArrayList<String> datos;
 
     private SharedPreferences persistencia;
@@ -38,29 +38,29 @@ public class InformacionVehiculo extends AppCompatActivity {
     private SharedPreferences persistencia2;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_informacion_vehiculo);
 
-
-
         plac = (EditText) findViewById(R.id.etPlaca);
         marc = (EditText) findViewById(R.id.edMarca);
         tipo = (EditText) findViewById(R.id.edTipoVeGas);
         su = (EditText) findViewById(R.id.etGanancia);
+
         cargar();
 
         persistencia1 = getSharedPreferences("Ganancias", Context.MODE_PRIVATE);
         persistencia2 = getSharedPreferences("gastosSha", Context.MODE_PRIVATE);
+
+
         Gson gson = new Gson();
 
         datos1 = new ArrayList<String>();
         datos2 = new ArrayList<String>();
 
         String lis = persistencia1.getString("listaGanancias", " ");
-        String lis2 = persistencia2.getString("listaGastos"," ");
+        String lis2 = persistencia2.getString("listaGastos", " ");
 
         Type type = new TypeToken<List<String>>() {
         }.getType();
@@ -68,28 +68,35 @@ public class InformacionVehiculo extends AppCompatActivity {
         Type type2 = new TypeToken<List<String>>() {
         }.getType();
 
+
         List<String> objects = gson.fromJson(lis, type);
         List<String> objects2 = gson.fromJson(lis2, type2);
 
         // for (int i = 0; i < objects.size(); i += 4) {
-        datos1.add("Tipo G: " + objects.get(0) + " - " + objects.get(1));
-        datos1.add("Tipo gas: " +objects2.get(0) + " - " +objects2.get(1));
+        //datos1.add("Tipo G: " + objects.get(0) + " - " + objects.get(1));
+        // datos1.add("Tipo gas: " + objects2.get(0) + " - " + objects2.get(1));
 
-
-
-        double gana = Double.parseDouble(objects.get(1)) ;
-        double gastooo = Double.parseDouble(objects2.get(1));
-        if(gana==0 && gastooo==0){
-            su.setText(0);
-        }else {
-            suma = gana - gastooo;
-            su.setText(suma + "");
+        if (objects == null && objects2 == null) {
+            Toast.makeText(this, "No hay registros", Toast.LENGTH_SHORT).show();
+        } else if (objects == null && objects2 != null) {
+            su.setText("Gastos: " + objects2.get(1));
+        } else if (objects != null && objects2 == null) {
+            su.setText("Ganancias: " + objects.get(1));
+        } else {
+            double gana = Double.parseDouble(objects.get(1));
+            double gastooo = Double.parseDouble(objects2.get(1));
+            if (gana == 0 && gastooo == 0) {
+                su.setText(0);
+            } else {
+                suma = gana - gastooo;
+                su.setText(String.valueOf(suma));
+            }
         }
     }
 
-    public void cargar (){
+    public void cargar() {
 
-        persistencia=getSharedPreferences("registroVehiculo", Context.MODE_PRIVATE);
+        persistencia = getSharedPreferences("registroVehiculo", Context.MODE_PRIVATE);
 
         Gson gson = new Gson();
         datos = new ArrayList<String>();
@@ -105,25 +112,24 @@ public class InformacionVehiculo extends AppCompatActivity {
         marc.setText(objects.get(1));
 
 
-
     }
 
-    public void ingresarGasto(View view){
-        Intent intent = new Intent(this,Gastos.class);
+    public void ingresarGasto(View view) {
+        Intent intent = new Intent(this, Gastos.class);
         String pl = plac.getText().toString();
-        intent.putExtra("placaGlobaG",pl);
+        intent.putExtra("placaGlobaG", pl);
         startActivity(intent);
     }
 
-    public void ingresarGanancia(View view){
-        Intent intent = new Intent(this,Ganancias.class);
+    public void ingresarGanancia(View view) {
+        Intent intent = new Intent(this, Ganancias.class);
         String p = plac.getText().toString();
-        intent.putExtra("placaGloba",p);
-       startActivity(intent);
+        intent.putExtra("placaGloba", p);
+        startActivity(intent);
     }
 
-    public void ingresarLista(View view){
-        Intent intent = new Intent(this,ListadoGanancias.class);
+    public void ingresarLista(View view) {
+        Intent intent = new Intent(this, ListadoGanancias.class);
         startActivity(intent);
     }
 }
